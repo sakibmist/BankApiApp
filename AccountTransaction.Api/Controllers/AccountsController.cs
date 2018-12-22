@@ -61,20 +61,20 @@ namespace ProjectApi.Controllers
 
         // Check Exist Mobile No.
 
-        [HttpGet("checkmobileNo/{mobileNo}")]
-        public IActionResult CheckMobileNoExist(string mobileNo)
-        {
-            try
-            {
-                var isExist = _dataContext.Accounts.Any(x => x.MobileNo == mobileNo);
-                return Ok(new { IsExist = isExist }); //200 core er property kore neoya hoyese.
-            }
-            catch (System.Exception)
-            {
+        // [HttpGet("check/mobile/{mobileNo}")]
+        // public IActionResult CheckMobileNoExist(string mobileNo)
+        // {
+        //     try
+        //     {
+        //         var isExist = _dataContext.Accounts.Any(x => x.MobileNo == mobileNo);
+        //         return Ok(new { IsExist = isExist }); //200 core er property kore neoya hoyese.
+        //     }
+        //     catch (System.Exception)
+        //     {
 
-                return BadRequest(); //400
-            }
-        }
+        //         return BadRequest(); //400
+        //     }
+        // }
 
         [HttpGet("check/balance/{accountId}/{amount}")]
         public IActionResult CheckAmount(long accountId, decimal amount)
@@ -99,35 +99,50 @@ namespace ProjectApi.Controllers
         [HttpPost]
         public IActionResult AddData(Account account)
         {
-            try
+            using(var transaction = _dataContext.Database.BeginTransaction())
             {
-                if (account == null) return NotFound(); //404
-                _dataContext.Accounts.Add(account);
-                _dataContext.SaveChanges();
-                return CreatedAtRoute("GetData", new { id = account.Id }, account); //201
+                try
+                {
+                    if (account == null) return NotFound(); //404
+                    _dataContext.Accounts.Add(account);
+                    _dataContext.SaveChanges();
+                    var firstTrn = new Transaction{
+                         AccountId = account.Id,
+                        Amount = account.Balance,
+                        CurrentBalance = account.Balance,
+                        ReceiveAmount = 0,
+                        PaymentAmount = account.Balance 
+                    };
+                    _dataContext.Transactions.Add(firstTrn);
+                    _dataContext.SaveChanges();
+                    transaction.Commit();
+                    return CreatedAtRoute("GetData", new { id = account.Id }, account); //201
+                }
+                catch (System.Exception)
+                {
+                    transaction.Rollback();
+                    return BadRequest();
+                }
             }
-            catch (System.Exception)
-            {
-                return BadRequest();
-            }
+
         }
 
-        [HttpDelete("{id}")]
-        public IActionResult DeleteById(int id)
-        {
-            try
-            {
-                var data = _dataContext.Accounts.FirstOrDefault(x => x.Id == id);
-                if (data == null) return null;
-                _dataContext.Accounts.Remove(data);
-                _dataContext.SaveChanges();
-                return Ok(); //200
-            }
-            catch (System.Exception)
-            {
-                return BadRequest(); // 400
-            }
-        }
+        // [HttpDelete("{id}")]
+        // public IActionResult DeleteById(int id)
+        // {
+        //     try
+        //     {
+        //         var data = _dataContext.Accounts.FirstOrDefault(x => x.Id == id);
+        //         if (data == null) return null;
+        //         _dataContext.Accounts.Remove(data);
+        //         _dataContext.SaveChanges();
+        //         return Ok(); //200
+        //     }
+        //     catch (System.Exception)
+        //     {
+        //         return BadRequest(); // 400
+        //     }
+        // }
 
     }
 }

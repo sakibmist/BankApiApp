@@ -27,6 +27,12 @@ namespace AccountTransaction.Api.Migrations
                 {
                     table.PrimaryKey("PK_Accounts", x => x.Id);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Accounts_AccountNo",
+                table: "Accounts",
+                column: "AccountNo",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

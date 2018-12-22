@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import { Route, NavLink} from "react-router-dom";
+import { Route, NavLink } from "react-router-dom";
 //import logo from './logo.svg';
-import "./App.css"; 
+import "./App.css";
 import CreateAccountPage from "./CreateAccountPage";
-import AccountIndexPage from './AccountIndexPage';
-import AccountOperationPage from './AccountOperationPage';
-//import AllTransactionPage from './AllTransactionPage';
-//import DetailAccountPage from './DetailAccountPage';
+import AccountIndexPage from "./AccountIndexPage";
+import AccountOperationPage from "./AccountOperationPage";
+import AllTransactionPage from './AllTransactionPage';
+import DetailAccountPage from "./DetailAccountPage";
+ 
 
 class App extends Component {
   render() {
@@ -44,8 +45,13 @@ class App extends Component {
                     </NavLink>
                   </li>
                   <li className="nav-item navSpace">
+                    <NavLink className="nav-link" to="/createAccount">
+                      Create Account
+                    </NavLink>
+                  </li>
+                  <li className="nav-item navSpace">
                     <NavLink className="nav-link" to="/accountOperationPage">
-                      Account Operation
+                      Account Transaction
                     </NavLink>
                   </li>
                   <li className="nav-item dropdown navSpace">
@@ -76,12 +82,6 @@ class App extends Component {
                       </a>
                     </div>
                   </li>
-                  
-                  <li className="nav-item navSpace">
-                    <NavLink className="nav-link" to="/createAccount">
-                      Create Account
-                    </NavLink>
-                  </li>
                   <li className="nav-item navSpace">
                     <NavLink className="nav-link" to="/accountIndexPage">
                       All Accounts
@@ -95,14 +95,18 @@ class App extends Component {
                 </ul>
               </div>
             </nav>
-            <div className="minHeight"> 
-               <Route path="/createAccount" component={CreateAccountPage} />
-              <Route path="/accountIndexPage" component={AccountIndexPage} /> 
-              <Route path="/accountOperationPage" component={AccountOperationPage} />
-               {/*<Route path="/allTransactionPage" component={AllTransactionPage} />
-              <Route path="/detailAccountPage/information/:id" component={DetailAccountPage} /> */}
-
-             
+            <div className="minHeight">
+              <Route path="/createAccount" component={CreateAccountPage} />
+              <Route path="/accountIndexPage" component={AccountIndexPage} />
+              <Route
+                path="/accountOperationPage"
+                component={AccountOperationPage}
+              />
+              <Route path="/allTransactionPage" component={AllTransactionPage} />
+              <Route
+                path="/detailAccountPage/information/:id"
+                component={DetailAccountPage}
+              />
             </div>
             <div className="card-footer border">
               <h6 className="text-center">

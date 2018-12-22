@@ -8773,12 +8773,11 @@
       ]
     },
     "System.Diagnostics.TraceSource/4.3.0": {
-      "sha512": "PXWAEqWXamctxvdYSlHY+HG0e++cVkg0FwiqtiOZ4Ziy31GD9uab2QAgkuDKUARcCdVq3DfruvdMnPfalEJbNw==",
+      "sha512": "VnYp1NxGx8Ww731y2LJ1vpfb/DKVNKEZ8Jsh5SgQTZREL/YpWRArgh9pI8CDLmgHspZmLL697CaLvH85qQpRiw==",
       "type": "package",
       "path": "system.diagnostics.tracesource/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -12419,28 +12418,30 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\samad\\.nuget\\packages\\": {},
+    "C:\\Users\\SA SamaD\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\samad\\Desktop\\AccountTransaction\\AccountTransaction.Api\\AccountTransaction.Api.csproj",
+      "projectUniqueName": "c:\\Users\\SA SamaD\\Desktop\\BankApiApp\\AccountTransaction.Api\\AccountTransaction.Api.csproj",
       "projectName": "AccountTransaction.Api",
-      "projectPath": "c:\\Users\\samad\\Desktop\\AccountTransaction\\AccountTransaction.Api\\AccountTransaction.Api.csproj",
-      "packagesPath": "C:\\Users\\samad\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\samad\\Desktop\\AccountTransaction\\AccountTransaction.Api\\obj\\",
+      "projectPath": "c:\\Users\\SA SamaD\\Desktop\\BankApiApp\\AccountTransaction.Api\\AccountTransaction.Api.csproj",
+      "packagesPath": "C:\\Users\\SA SamaD\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\SA SamaD\\Desktop\\BankApiApp\\AccountTransaction.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\samad\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\SA SamaD\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.2"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

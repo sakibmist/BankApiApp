@@ -16,6 +16,7 @@ class AccountIndexPage extends React.Component {
 
         if (response.status === 200) { 
             const accounts = response.data; 
+            console.log(accounts);
             this.setState({ accounts });
         }
     }; 
@@ -25,7 +26,7 @@ class AccountIndexPage extends React.Component {
         return (
             <div className="card-body border minHeight">
                 <div className="">
-                    <table className="table table-bordered">
+                    <table className="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -35,7 +36,7 @@ class AccountIndexPage extends React.Component {
                                 <th>A/C No.</th>
                                 <th>Balance</th> 
                                 <th>Tran.At</th>  
-                                <th width="200">Action</th>
+                                <th width="100">Action</th>
                             </tr>
                         </thead>
                         <tbody>
