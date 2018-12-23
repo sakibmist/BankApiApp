@@ -26,3 +26,17 @@ C:\Users\SA SamaD\Desktop\BankApiApp\AccountTransaction.Api\obj\Debug\netcoreapp
 C:\Users\SA SamaD\Desktop\BankApiApp\AccountTransaction.Api\obj\Debug\netcoreapp2.2\AccountTransaction.Api.RazorTargetAssemblyInfo.cache
 C:\Users\SA SamaD\Desktop\BankApiApp\AccountTransaction.Api\obj\Debug\netcoreapp2.2\AccountTransaction.Api.dll
 C:\Users\SA SamaD\Desktop\BankApiApp\AccountTransaction.Api\obj\Debug\netcoreapp2.2\AccountTransaction.Api.pdb
+E:\BankApiApp\AccountTransaction.Api\bin\Debug\netcoreapp2.2\AccountTransaction.Api.deps.json
+E:\BankApiApp\AccountTransaction.Api\bin\Debug\netcoreapp2.2\AccountTransaction.Api.runtimeconfig.json
+E:\BankApiApp\AccountTransaction.Api\bin\Debug\netcoreapp2.2\AccountTransaction.Api.runtimeconfig.dev.json
+E:\BankApiApp\AccountTransaction.Api\bin\Debug\netcoreapp2.2\AccountTransaction.Api.dll
+E:\BankApiApp\AccountTransaction.Api\bin\Debug\netcoreapp2.2\AccountTransaction.Api.pdb
+E:\BankApiApp\AccountTransaction.Api\obj\Debug\netcoreapp2.2\AccountTransaction.Api.csprojAssemblyReference.cache
+E:\BankApiApp\AccountTransaction.Api\obj\Debug\netcoreapp2.2\AccountTransaction.Api.csproj.CoreCompileInputs.cache
+E:\BankApiApp\AccountTransaction.Api\obj\Debug\netcoreapp2.2\AccountTransaction.Api.RazorAssemblyInfo.cache
+E:\BankApiApp\AccountTransaction.Api\obj\Debug\netcoreapp2.2\AccountTransaction.Api.RazorAssemblyInfo.cs
+E:\BankApiApp\AccountTransaction.Api\obj\Debug\netcoreapp2.2\AccountTransaction.Api.AssemblyInfoInputs.cache
+E:\BankApiApp\AccountTransaction.Api\obj\Debug\netcoreapp2.2\AccountTransaction.Api.AssemblyInfo.cs
+E:\BankApiApp\AccountTransaction.Api\obj\Debug\netcoreapp2.2\AccountTransaction.Api.RazorTargetAssemblyInfo.cache
+E:\BankApiApp\AccountTransaction.Api\obj\Debug\netcoreapp2.2\AccountTransaction.Api.dll
+E:\BankApiApp\AccountTransaction.Api\obj\Debug\netcoreapp2.2\AccountTransaction.Api.pdb

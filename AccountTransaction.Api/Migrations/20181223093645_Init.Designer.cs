@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AccountTransaction.Api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20181222153222_Init")]
+    [Migration("20181223093645_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,6 +20,31 @@ namespace AccountTransaction.Api.Migrations
                 .HasAnnotation("ProductVersion", "2.2.0-rtm-35687")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("AccountTransaction.Api.Models.Transaction", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long>("AccountId");
+
+                    b.Property<decimal>("Amount");
+
+                    b.Property<decimal>("CurrentBalance");
+
+                    b.Property<decimal>("PaymentAmount");
+
+                    b.Property<decimal>("ReceiveAmount");
+
+                    b.Property<DateTime>("TxnDateTime");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AccountId");
+
+                    b.ToTable("Transactions");
+                });
 
             modelBuilder.Entity("ProjectApi.Models.Account", b =>
                 {
@@ -59,6 +84,14 @@ namespace AccountTransaction.Api.Migrations
                         .IsUnique();
 
                     b.ToTable("Accounts");
+                });
+
+            modelBuilder.Entity("AccountTransaction.Api.Models.Transaction", b =>
+                {
+                    b.HasOne("ProjectApi.Models.Account", "Account")
+                        .WithMany()
+                        .HasForeignKey("AccountId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

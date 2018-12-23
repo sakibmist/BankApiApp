@@ -45,13 +45,8 @@ class CreateAccountPage extends React.Component {
   };
 
   handleValidateForm = () => {
-    const {
-      isEmailValid,
-      isMobileValid,
-      isAccountExist 
-    } = this.state;
-    if (!isEmailValid || !isMobileValid || isAccountExist )
-      return false;
+    const { isEmailValid, isMobileValid, isAccountExist } = this.state;
+    if (!isEmailValid || !isMobileValid || isAccountExist) return false;
     return true;
   };
 
@@ -92,6 +87,7 @@ class CreateAccountPage extends React.Component {
 
   handleIsAccountExist = async () => {
     const { accountNo } = this.state;
+    if (!accountNo) return;
     const response = await http.get(
       `${this.baseUrl}/check/account/${accountNo}`
     );
@@ -121,7 +117,7 @@ class CreateAccountPage extends React.Component {
       balance,
       isEmailValid,
       isMobileValid,
-      isAccountExist 
+      isAccountExist
     } = this.state;
     return (
       <div className="card-body border minHeight">

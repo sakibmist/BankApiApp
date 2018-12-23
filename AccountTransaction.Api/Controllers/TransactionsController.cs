@@ -11,6 +11,8 @@ namespace ProjectApi.Controllers
     [ApiController]
     public class TransactionsController : ControllerBase
     {
+        private readonly DataContext dataContext;
+
         private readonly DataContext _dataContext;
 
         public TransactionsController(DataContext dataContext)
@@ -26,7 +28,7 @@ namespace ProjectApi.Controllers
             {
                 var transactionsData = _dataContext.Transactions.Select(s => new TransactionReturnDto
                 {
-                    Id = s.Id,
+                        Id = s.Id,
                         AccountNo = s.Account.AccountNo,
                         CurrentBalance = s.CurrentBalance,
                         ReceiveAmount = s.ReceiveAmount,
@@ -69,6 +71,7 @@ namespace ProjectApi.Controllers
         }
 
         //get all transaction data from all transaction  by one accountId and show in decending order against the id. 
+
         [HttpGet("account/id/{accountId}")]
         public IActionResult GetAllDataById(long accountId)
         {

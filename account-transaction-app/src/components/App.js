@@ -5,9 +5,8 @@ import "./App.css";
 import CreateAccountPage from "./CreateAccountPage";
 import AccountIndexPage from "./AccountIndexPage";
 import AccountOperationPage from "./AccountOperationPage";
-import AllTransactionPage from './AllTransactionPage';
+import AllTransactionPage from "./AllTransactionPage";
 import DetailAccountPage from "./DetailAccountPage";
- 
 
 class App extends Component {
   render() {
@@ -102,7 +101,10 @@ class App extends Component {
                 path="/accountOperationPage"
                 component={AccountOperationPage}
               />
-              <Route path="/allTransactionPage" component={AllTransactionPage} />
+              <Route
+                path="/allTransactionPage"
+                component={AllTransactionPage}
+              />
               <Route
                 path="/detailAccountPage/information/:id"
                 component={DetailAccountPage}
