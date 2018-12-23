@@ -11,7 +11,8 @@ class CreateAccountPage extends React.Component {
     email: "",
     isAccountExist: undefined,
     isMobileValid: undefined,
-    isEmailValid: undefined
+    isEmailValid: undefined,
+    isValidBalance: undefined
     //isMobileNoExist: false
   };
 
@@ -32,6 +33,11 @@ class CreateAccountPage extends React.Component {
       isMobileValid
     });
   };
+  // handleChangeBalance = () => {
+  //   const { balance} = this.state;
+  //   const isValidBalance = balance <= 0 ? false : true;
+  //   this.setState({isValidBalance});
+  // };
 
   handleChangeEmail = event => {
     const { value } = event.target;
@@ -42,6 +48,12 @@ class CreateAccountPage extends React.Component {
       email: value,
       isEmailValid
     });
+  };
+
+  handleValidBalace = () => {
+    const { balance } = this.state;
+    if (balance <= 0) return false;
+    return true;
   };
 
   handleValidateForm = () => {
@@ -67,6 +79,10 @@ class CreateAccountPage extends React.Component {
       alert("Invalid Data Are Not Allowed. Try Again.");
       return;
     }
+    if (!this.handleValidBalace()) {
+      alert("Invalid Balance Is Not Allowed. Try Again.");
+      return;
+    }
 
     const {
       firstName,
@@ -76,6 +92,7 @@ class CreateAccountPage extends React.Component {
       balance,
       accountNo
     } = this.state;
+
     //const accountNo = `@${firstName}${mobileNo}@%`;
     const data = { firstName, lastName, accountNo, mobileNo, email, balance };
     const response = await http.post(this.baseUrl, data);
@@ -125,7 +142,7 @@ class CreateAccountPage extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <div className="form-group row">
               <label htmlFor="firstName" className="col-sm-4 col-form-label">
-                First Name
+                First Name<span className="text-danger">*</span>
               </label>
               <div className="col-sm-8">
                 <input
@@ -141,7 +158,7 @@ class CreateAccountPage extends React.Component {
             </div>
             <div className="form-group row">
               <label htmlFor="lastName" className="col-sm-4 col-form-label">
-                Last Name
+                Last Name<span className="text-danger">*</span>
               </label>
               <div className="col-sm-8">
                 <input
@@ -157,7 +174,7 @@ class CreateAccountPage extends React.Component {
             </div>
             <div className="form-group row">
               <label htmlFor="mobileNo" className="col-sm-4 col-form-label">
-                Mobile No.
+                Mobile No.<span className="text-danger">*</span>
               </label>
               <div className="col-sm-8">
                 <input
@@ -184,7 +201,7 @@ class CreateAccountPage extends React.Component {
             </div>
             <div className="form-group row">
               <label htmlFor="mobileNo" className="col-sm-4 col-form-label">
-                Email
+                Email<span className="text-danger">*</span>
               </label>
               <div className="col-sm-8">
                 <input

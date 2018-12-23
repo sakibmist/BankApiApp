@@ -35,7 +35,7 @@ class AccountOperationPage extends React.Component {
 
   handleInsufficiectAmount = async () => {
     const { accountId, amount } = this.state;
-    if(!accountId || !amount) return;
+    if (!accountId || !amount) return;
     const response = await http.get(
       `${this.baseUrl}/accounts/check/balance/${accountId}/${amount}`
     );
@@ -48,6 +48,12 @@ class AccountOperationPage extends React.Component {
   handleRequiredFields = () => {
     const { accountId, amount, transactionMode } = this.state;
     if (!accountId || !transactionMode || !amount) return false;
+    return true;
+  };
+
+  handleValidAmount = () => {
+    const { amount } = this.state;
+    if (amount <= 0) return false;
     return true;
   };
   handleSubmit = async event => {
@@ -66,13 +72,17 @@ class AccountOperationPage extends React.Component {
       alert("Invalid Data are not Allowed!");
       return;
     }
-if(amount<=0) return;
+    if (!this.handleValidAmount()) {
+      alert("Invalid Amount!");
+      return;
+    }
+    if (amount <= 0) return;
     const response = await http.post(`${this.baseUrl}/transactions`, {
       accountId,
       transactionMode,
       amount
     });
-    
+
     if (response.status === 200) {
       console.log(response.status);
       this.props.history.push("/allTransactionPage");
