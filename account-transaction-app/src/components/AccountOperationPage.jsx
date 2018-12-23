@@ -75,7 +75,7 @@ if(amount<=0) return;
     
     if (response.status === 200) {
       console.log(response.status);
-      this.props.history.push("/allTransactionsPage");
+      this.props.history.push("/allTransactionPage");
     }
   };
   render() {

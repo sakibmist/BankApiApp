@@ -9,10 +9,9 @@ namespace ProjectApi.Controllers
 {
     [Route("api/transactions")]
     [ApiController]
-    public class TransactionsController : ControllerBase
-    {
-        private readonly DataContext dataContext;
 
+    public class TransactionsController : ControllerBase
+    { 
         private readonly DataContext _dataContext;
 
         public TransactionsController(DataContext dataContext)
@@ -34,7 +33,7 @@ namespace ProjectApi.Controllers
                         ReceiveAmount = s.ReceiveAmount,
                         PaymentAmount = s.PaymentAmount,
                         TxnDateTime = s.TxnDateTime,
-                        AccountId = s.AccountId
+                        AccountId = s.AccountId     
                 }).OrderByDescending(x => x.Id).ToList();
                 return Ok(transactionsData); //200
             }

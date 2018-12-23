@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AccountTransaction.Api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20181223093645_Init")]
+    [Migration("20181223162631_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

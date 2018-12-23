@@ -5,7 +5,6 @@ namespace AccountTransaction.Api.Dto
     public class TransactionReturnDto
     { 
         public long Id { get; set; }  
-       
         public decimal CurrentBalance { get; set; } 
          
         public decimal ReceiveAmount { get; set; } 

@@ -1,6 +1,7 @@
 import React from "react";
 import http from "axios";
 import moment from 'moment';
+import {NavLink} from 'react-router-dom';
 class AllTransactionsPage extends React.Component {
   state = {
     listofTransactions: []
@@ -20,7 +21,7 @@ class AllTransactionsPage extends React.Component {
   render() {
     const { listofTransactions } = this.state;
     return (
-      <div className="offset-1 col-sm-10 minHeight marginTop">
+      <div className="card-body border minHeight">
         {/* <div className="card d-flex justify-content-between">
           <div className="col-sm">
             <input type="text" name="searchValue" className="form-control" />
@@ -32,6 +33,11 @@ class AllTransactionsPage extends React.Component {
             <input type="date" name="searchValue" className="form-control" />
           </div>
         </div> */}
+        <div className="d-flex justify-content-end mb-2">
+          <NavLink to="/accountOperationPage" className="btn btn-info">
+            Go back
+          </NavLink>
+        </div>
         <table className="table table-bordered table-striped">
           <thead>
             <tr>
